@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Partners - LearnLoop</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/explore.css">
+</head>
+<body>
+
+  <!-- Premium Loader Screen -->
+  <div id="loader-screen">
+    <div class="loader-logo">
+      <svg viewBox="0 0 44 24" width="56" height="32" fill="none">
+        <circle cx="14" cy="12" r="8" stroke="#8b5cf6" stroke-width="3" />
+        <circle cx="27" cy="12" r="8" stroke="#94a3b8" stroke-width="3" stroke-opacity="0.8" />
+      </svg>
+      <span>LearnLoop</span>
+    </div>
+    <div class="loader-ring"></div>
+  </div>
+
+  <div class="glowing-blob blob-purple"></div>
+  <div class="glowing-blob blob-cyan"></div>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Page Header -->
+      <header class="page-header">
+        <div class="page-title">
+          <h1>Find Learning Partners</h1>
+          <p>Match with members who offer what you want to learn, and want what you teach.</p>
+        </div>
+      </header>
+      
+      <!-- Search & Filtering Panels -->
+      <section class="search-filters-bar glass">
+        <div class="search-input-wrapper">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="search-query" placeholder="Search by name, teaching skills, or topics...">
+        </div>
+        
+        <div class="filters-row">
+          <select id="filter-level" aria-label="Filter by Skill Level">
+            <option value="all">Any Level</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Expert">Expert</option>
+          </select>
+          
+          <select id="filter-availability" aria-label="Filter by Availability">
+            <option value="all">Any Availability</option>
+            <option value="Weekends">Weekends & Evenings</option>
+            <option value="Weekdays">Weekdays</option>
+            <option value="Flexible">Flexible Schedule</option>
+          </select>
+          
+          <select id="filter-rating" aria-label="Filter by Rating">
+            <option value="all">Any Rating</option>
+            <option value="4.8">4.8+ Stars</option>
+            <option value="4.9">4.9+ Stars</option>
+            <option value="5.0">5.0 Stars</option>
+          </select>
+          
+          <button class="btn btn-secondary" id="clear-filters-btn">Clear</button>
+        </div>
+      </section>
+      
+      <!-- Results Grid -->
+      <section class="matches-grid" id="explore-matches-grid">
+        <!-- Match Cards dynamically injected here -->
+      </section>
+      
+    </main>
+    
+  </div>
+
+  <!-- Exchange Request Modal Overlay -->
+  <div class="modal-overlay" id="exchange-modal">
+    <div class="modal-container glass-card">
+      <div class="modal-header">
+        <span class="modal-title">Send Barter Request</span>
+        <span class="modal-close" id="close-exchange-modal">&times;</span>
+      </div>
+      <form id="exchange-request-form">
+        <!-- Hidden values -->
+        <input type="hidden" id="target-partner-id">
+        
+        <div class="modal-body">
+          <div class="barter-flow-visual">
+            <div class="barter-party me">
+              <span class="party-label">You offer</span>
+              <select class="form-control" id="barter-offer-select" required>
+                <!-- Dynamic offered skills of current user -->
+              </select>
+            </div>
+            
+            <div class="barter-icon-center">
+              <svg width="20" height="20" fill="none" stroke="var(--purple)" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
+            </div>
+            
+            <div class="barter-party partner">
+              <span class="party-label" id="partner-offer-label">Elena offers</span>
+              <select class="form-control" id="barter-receive-select" required>
+                <!-- Dynamic offered skills of partner -->
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-top: 24px;">
+            <label class="form-label" for="exchange-proposal-msg">Barter Message</label>
+            <textarea class="form-control" id="exchange-proposal-msg" rows="3" style="resize:none;" placeholder="Hi! I'd love to teach you X in exchange for learning Y. Let me know if you are free..."></textarea>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancel-exchange-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-glow">Send Proposal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/explore.js"></script>
+</body>
+</html>

@@ -1,0 +1,705 @@
+/* Redesigned Profile Styles - LinkedIn Aesthetic */
+
+/* LinkedIn-style Header Card */
+.linkedin-card {
+  margin-bottom: 24px;
+}
+
+.profile-banner {
+  height: 200px;
+  background: linear-gradient(135deg, var(--indigo) 0%, var(--purple) 50%, var(--teal) 100%);
+  background-size: 200% auto;
+  animation: gradientPan 8s linear infinite;
+  position: relative;
+}
+
+.profile-header-details {
+  display: flex;
+  padding: 0 28px 28px;
+  margin-top: -65px;
+  position: relative;
+  z-index: 10;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.profile-avatar-container {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 4px solid var(--bg-primary);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.profile-avatar-container:hover {
+  transform: scale(1.02);
+}
+
+.profile-avatar-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-info-block {
+  flex-grow: 1;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-name-row h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.pro-badge {
+  background: var(--grad-cyan-teal);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(20, 184, 166, 0.3);
+}
+
+.profile-headline-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.connections-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.connections-row #profile-display-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.connections-count {
+  color: var(--cyan);
+}
+
+.profile-cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  align-items: center;
+}
+
+/* Profile private grid layout */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.profile-left-column, .profile-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.linkedin-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text-primary);
+}
+
+.profile-bio-text {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Quick Post Share box like LinkedIn */
+.quick-share-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.01);
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quick-share-box:hover {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.quick-share-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--purple);
+}
+
+.quick-share-avatar svg {
+  width: 100%;
+  height: 100%;
+}
+
+.quick-share-input {
+  flex-grow: 1;
+  color: var(--text-muted);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.btn-share-photo {
+  background: none;
+  border: none;
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-share-photo:hover {
+  transform: scale(1.05);
+}
+
+/* Community Photo Posts Feed cards */
+.activity-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activity-post-card {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.005);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slideUp 0.3s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+.post-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.post-author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.post-author-avatar svg {
+  width: 100%;
+  height: 100%;
+}
+
+.post-author-details {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.post-author-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.post-author-headline {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+.post-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.post-caption-text {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Photo illustration containers styling */
+.post-photo-box {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* Gradient background types */
+.photo-study {
+  background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+}
+.photo-certificate {
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 100%);
+}
+.photo-whiteboard {
+  background: linear-gradient(135deg, #072e33 0%, #0c3e44 100%);
+}
+.photo-workspace {
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+}
+
+.post-photo-box svg {
+  width: 100%;
+  height: 100%;
+  max-width: 320px;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+}
+
+/* Reactions counts row */
+.post-reactions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.likes-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.likes-indicator span {
+  font-size: 12px;
+}
+
+/* Action button trigger row */
+.post-actions-row {
+  display: flex;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.btn-post-action {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-post-action:hover {
+  background: rgba(255,255,255,0.03);
+  color: var(--text-primary);
+}
+
+.btn-post-action.liked {
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+/* Share post modal photo select options */
+.photo-select-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.photo-option {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.01);
+  transition: all 0.3s;
+}
+
+.photo-option:hover {
+  border-color: var(--purple);
+  background: rgba(255,255,255,0.03);
+}
+
+.photo-option.active {
+  border-color: var(--cyan);
+  background: rgba(6, 182, 212, 0.05);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
+}
+
+.photo-option-icon {
+  font-size: 24px;
+  display: block;
+}
+
+.photo-option-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.photo-option.active .photo-option-label {
+  color: var(--text-primary);
+}
+
+/* Experience job-like items list */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.experience-list::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--border-color);
+}
+
+.experience-item {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+
+.exp-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: var(--grad-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+}
+
+.exp-details h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.exp-details h5 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.exp-details p {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.exp-desc {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+/* Skills section styling modifications */
+.skills-block-section h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.skills-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-color);
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.skill-chip:hover {
+  border-color: var(--purple);
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.skill-lvl-badge {
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.lvl-expert { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.lvl-intermediate { background: rgba(6, 182, 212, 0.1); color: var(--cyan); }
+.lvl-beginner { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+.endorsements-lbl {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-left: 1px solid var(--border-color);
+  padding-left: 6px;
+}
+
+.chip-actions {
+  display: flex;
+  align-items: center;
+}
+
+.skill-delete-btn {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.skill-delete-btn:hover {
+  color: #ef4444;
+}
+
+/* Badges Showcase Grid */
+.profile-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.badge-card-full {
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.005);
+  transition: all 0.3s ease;
+}
+
+.badge-card-full.locked {
+  filter: grayscale(1);
+  opacity: 0.35;
+}
+
+.badge-card-full:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.badge-icon-lg {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.badge-card-full h5 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.badge-card-full p {
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Recommendations and Reviews */
+.rating-summary-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.rating-stars-large {
+  font-size: 26px;
+  color: #f59e0b;
+}
+
+.rating-summary-box h4 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.rating-summary-box p {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-item-card {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.005);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.review-author {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 10px;
+}
+
+.review-comment {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.review-date {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 6px;
+}
+
+@media (max-width: 1024px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-banner {
+    height: 140px;
+  }
+  .profile-header-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -55px;
+    padding: 0 16px 20px;
+  }
+  .profile-avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+  .profile-info-block {
+    padding-top: 10px;
+  }
+  .profile-name-row {
+    justify-content: center;
+  }
+  .connections-row {
+    justify-content: center;
+  }
+  .profile-cta-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .profile-cta-row button {
+    width: 100%;
+  }
+}
+
+.avatar-opt.active .avatar-opt-preview {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 12px var(--cyan);
+  transform: scale(1.1);
+}
+.avatar-opt-preview {
+  transition: all 0.2s ease;
+}
+.avatar-opt-preview:hover {
+  transform: scale(1.05);
+}
