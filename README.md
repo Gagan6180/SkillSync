@@ -124,3 +124,4 @@ Since the application is built entirely as a client-side frontend demo using Van
    - In the agenda list below the calendar, click **Complete & Rate** on a session.
    - An interactive 5-star review card modal opens. Highlight 4 or 5 stars, write detailed feedback, and submit.
    - Notice that your dashboard's **Completed Hours** and **Average Rating** are updated, and more achievements are unlocked in your Profile page!
+# SkillSync
