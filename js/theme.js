@@ -1,9 +1,9 @@
-// LearnLoop Global State & Theme Manager
+// SkillSync Global State & Theme Manager
 
 // Global Badges Directory
 var BADGES_LIST = [
   { name: "Top Teacher", icon: "🏅", desc: "Completed 5+ teaching sessions with a rating >= 4.8" },
-  { name: "Active Learner", icon: "🚀", desc: "Registered and started learning on LearnLoop" },
+  { name: "Active Learner", icon: "🚀", desc: "Registered and started learning on SkillSync" },
   { name: "Community Helper", icon: "🤝", desc: "Exchanged skills with 3+ different users" },
   { name: "Skill Master", icon: "🎓", desc: "Added 3+ Expert level skills to your offering list" },
   { name: "Knowledge Contributor", icon: "💡", desc: "Submitted detailed feedback review on matches" }
@@ -122,7 +122,7 @@ const MOCK_USERS = [
   }
 ];
 
-class LearnLoopDB {
+class SkillSyncDB {
   constructor() {
     this.init();
   }
@@ -201,7 +201,7 @@ class LearnLoopDB {
           authorName: "Sarah Jenkins",
           authorHeadline: "Keynote Speaker & Business English Coach",
           authorAvatar: `<svg viewBox="0 0 100 100" class="avatar-svg"><defs><linearGradient id="av-3-p" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10B981" /><stop offset="100%" stop-color="#3B82F6" /></linearGradient></defs><circle cx="50" cy="50" r="50" fill="url(#av-3-p)"/><text x="50" y="58" font-size="28" font-weight="700" fill="#FFF" text-anchor="middle">SJ</text></svg>`,
-          caption: "Just completed an amazing public speaking swap on LearnLoop! Elena gave me great notes on CSS grids, and I helped her structure her keynote pitch. Truly a community of builders. 💡🎨",
+          caption: "Just completed an amazing public speaking swap on SkillSync! Elena gave me great notes on CSS grids, and I helped her structure her keynote pitch. Truly a community of builders. 💡🎨",
           photoType: "study", // study workspace SVG
           timestamp: "2 hours ago",
           likes: 8,
@@ -242,11 +242,14 @@ class LearnLoopDB {
 
   logout() {
     localStorage.removeItem("ll_current_user");
-    window.location.href = "login.html";
+    showToast("Signed out successfully. Redirecting...", "info");
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 350);
   }
 }
 
-const db = new LearnLoopDB();
+const db = new SkillSyncDB();
 
 // 2. Global DOM Initializations (Custom Cursor, Scroll Progress, Theme Toggles)
 document.addEventListener("DOMContentLoaded", () => {
@@ -601,7 +604,7 @@ function getGlobalNavbarHTML(activePage) {
           <circle cx="14" cy="12" r="8" stroke="var(--logo-purple)" stroke-width="3.5" />
           <circle cx="27" cy="12" r="8" stroke="var(--logo-grey)" stroke-width="3.5" stroke-opacity="0.9" />
         </svg>
-        <span>LearnLoop</span>
+        <span>SkillSync</span>
       </a>
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link ${activePage === 'landing' ? 'active' : ''}">Home</a></li>
@@ -628,7 +631,7 @@ function getSidebarHTML(activePage) {
           <circle cx="14" cy="12" r="8" stroke="var(--logo-purple)" stroke-width="3.5" />
           <circle cx="27" cy="12" r="8" stroke="var(--logo-grey)" stroke-width="3.5" stroke-opacity="0.9" />
         </svg>
-        <span>LearnLoop</span>
+        <span>SkillSync</span>
       </a>
       <ul class="sidebar-menu">
         <li class="sidebar-item ${activePage === 'dashboard' ? 'active' : ''}">
@@ -667,16 +670,50 @@ function getSidebarHTML(activePage) {
             My Profile
           </a>
         </li>
+        <li class="sidebar-item">
+          <a href="#" class="logout-btn" style="color: #ef4444;" title="Logout of SkillSync">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+            Logout
+          </a>
+        </li>
       </ul>
       <div class="sidebar-footer">
-        <div class="sidebar-user">
-          <div class="sidebar-user-avatar">${getAvatarHTML(user)}</div>
-          <div class="sidebar-user-info">
-            <span class="sidebar-user-name">${user.name}</span>
-            <span class="sidebar-user-role">Member</span>
+        <div class="sidebar-user-wrapper">
+          <div class="sidebar-user clickable" id="sidebar-user-trigger" title="Account & Logout options">
+            <div class="sidebar-user-avatar">${getAvatarHTML(user)}</div>
+            <div class="sidebar-user-info">
+              <span class="sidebar-user-name">${user.name}</span>
+              <span class="sidebar-user-role">Member</span>
+            </div>
+            <svg class="sidebar-user-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-left:auto; opacity:0.6; flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          
+          <div class="dropdown-menu sidebar-user-dropdown glass" id="sidebar-user-menu">
+            <div class="dropdown-header">Signed in as</div>
+            <div class="dropdown-item" style="font-weight:600; color:var(--text-primary); cursor:default; pointer-events:none;">${user.name}</div>
+            <div class="dropdown-divider"></div>
+            <a href="profile.html" class="dropdown-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              My Profile
+            </a>
+            <a href="dashboard.html" class="dropdown-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+              Dashboard
+            </a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item text-danger logout-btn clickable" style="color:#ef4444;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+              Logout
+            </div>
           </div>
         </div>
-        <button class="btn btn-icon theme-toggle clickable" aria-label="Toggle Theme">${getSunIcon()}</button>
+        
+        <div class="sidebar-footer-actions">
+          <button class="btn btn-icon theme-toggle clickable" aria-label="Toggle Theme" title="Toggle Theme">${getSunIcon()}</button>
+          <button class="btn btn-icon logout-btn clickable" aria-label="Logout" title="Logout" style="color: #ef4444;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </button>
+        </div>
       </div>
     </aside>
   `;
@@ -697,6 +734,38 @@ function forceAuth() {
 
 document.addEventListener("click", (e) => {
   if (e.target.closest(".logout-btn")) {
+    e.preventDefault();
     db.logout();
+    return;
+  }
+
+  // Sidebar user menu trigger
+  const sidebarUserTrigger = e.target.closest("#sidebar-user-trigger");
+  const sidebarUserMenu = document.getElementById("sidebar-user-menu");
+  if (sidebarUserTrigger) {
+    e.stopPropagation();
+    if (sidebarUserMenu) {
+      sidebarUserMenu.classList.toggle("active");
+    }
+    return;
+  }
+
+  // Profile avatar menu trigger
+  const profileAvatarTrigger = e.target.closest("#profile-avatar") || e.target.closest("#avatar-badge-btn");
+  const profileAvatarMenu = document.getElementById("profile-avatar-menu");
+  if (profileAvatarTrigger) {
+    e.stopPropagation();
+    if (profileAvatarMenu) {
+      profileAvatarMenu.classList.toggle("active");
+    }
+    return;
+  }
+
+  // Close menus on outside click
+  if (sidebarUserMenu && !e.target.closest(".sidebar-user-wrapper")) {
+    sidebarUserMenu.classList.remove("active");
+  }
+  if (profileAvatarMenu && !e.target.closest(".profile-avatar-wrapper")) {
+    profileAvatarMenu.classList.remove("active");
   }
 });

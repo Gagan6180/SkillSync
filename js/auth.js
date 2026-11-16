@@ -1,4 +1,4 @@
-// LearnLoop Authentication Logic
+// SkillSync Authentication Logic
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Toggle Login and Forgot Password views in login.html
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (!foundUser) {
         const mockMatch = MOCK_USERS.find(mu => {
-          const formattedEmail = mu.name.toLowerCase().replace(" ", "") + "@learnloop.com";
+          const formattedEmail = mu.name.toLowerCase().replace(" ", "") + "@skillsync.com";
           return formattedEmail === email;
         });
         if (mockMatch) {
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const newUser = {
         id: newUserId,
         name: name,
-        headline: "Member at LearnLoop | Ready to barter skills",
+        headline: "Member at SkillSync | Ready to barter skills",
         email: email,
         password: password,
         avatar: avatarSvg,
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
       notifs.unshift({
         id: "notif-" + Date.now(),
         type: "system",
-        text: "🏆 Badge Unlocked: Active Learner! Welcome to LearnLoop.",
+        text: "🏆 Badge Unlocked: Active Learner! Welcome to SkillSync.",
         time: "Just now",
         unread: true
       });

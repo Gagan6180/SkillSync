@@ -1,4 +1,4 @@
-// LearnLoop Dedicated Community Feed Logic
+// SkillSync Dedicated Community Feed Logic
 
 document.addEventListener("DOMContentLoaded", () => {
   forceAuth();
@@ -69,7 +69,7 @@ function renderActivityFeed() {
           <div class="post-author-avatar">${authorAvatarHTML}</div>
           <div class="post-author-details">
             <div class="post-author-name">${post.authorName}</div>
-            <div class="post-author-headline">${post.authorHeadline || 'LearnLoop Member'}</div>
+            <div class="post-author-headline">${post.authorHeadline || 'SkillSync Member'}</div>
           </div>
           <span class="post-time">${post.timestamp}</span>
         </div>
@@ -181,7 +181,7 @@ function setupPostModalEvents() {
     const newPost = {
       id: "post-" + Date.now(),
       authorName: currentUser.name,
-      authorHeadline: currentUser.headline || "LearnLoop Barter Member",
+      authorHeadline: currentUser.headline || "SkillSync Barter Member",
       authorAvatar: currentUser.avatar,
       caption: caption,
       photoType: photoType,

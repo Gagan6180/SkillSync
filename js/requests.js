@@ -1,4 +1,4 @@
-// LearnLoop Requests and Scheduling Calendar Logic
+// SkillSync Requests and Scheduling Calendar Logic
 
 let currentYear = 2026;
 let currentMonth = 6;

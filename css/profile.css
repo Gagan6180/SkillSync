@@ -23,6 +23,11 @@
   align-items: flex-end;
 }
 
+.profile-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
 .profile-avatar-container {
   width: 130px;
   height: 130px;
@@ -33,6 +38,50 @@
   box-shadow: var(--shadow-lg);
   flex-shrink: 0;
   transition: transform 0.3s ease;
+}
+
+.profile-avatar-container.clickable {
+  cursor: pointer;
+}
+
+.profile-avatar-badge-btn {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+  z-index: 12;
+}
+
+.profile-avatar-badge-btn:hover {
+  transform: scale(1.15);
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+}
+
+.profile-avatar-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 220px;
+  z-index: 100;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 12px;
 }
 
 .profile-avatar-container:hover {

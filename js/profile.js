@@ -1,4 +1,4 @@
-// LearnLoop Profile & Skill Management Logic
+// SkillSync Profile & Skill Management Logic
 
 document.addEventListener("DOMContentLoaded", () => {
   forceAuth();
@@ -59,7 +59,7 @@ function renderProfileInfo() {
   document.getElementById("profile-display-name").textContent = user.name;
   
   // Professional Headline
-  const hlText = user.headline || `Skill Exchange Partner | Active Member at LearnLoop`;
+  const hlText = user.headline || `Skill Exchange Partner | Active Member at SkillSync`;
   document.getElementById("profile-display-headline").textContent = hlText;
 
   document.getElementById("profile-display-location").innerHTML = `
@@ -137,6 +137,15 @@ function setupProfileModalEvents() {
   editBtn.addEventListener("click", openModal);
   closeBtn.addEventListener("click", closeModal);
   cancelBtn.addEventListener("click", closeModal);
+
+  const avatarEditTrigger = document.getElementById("avatar-edit-trigger");
+  if (avatarEditTrigger) {
+    avatarEditTrigger.addEventListener("click", () => {
+      const menu = document.getElementById("profile-avatar-menu");
+      if (menu) menu.classList.remove("active");
+      openModal();
+    });
+  }
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -375,7 +384,7 @@ function renderExperienceTimeline() {
         <div class="exp-logo">LL</div>
         <div class="exp-details">
           <h4>Founder Member & Exchange Starter</h4>
-          <h5>LearnLoop Barter Network</h5>
+          <h5>SkillSync Barter Network</h5>
           <p>July 2026 - Present</p>
           <p class="exp-desc">Ready to launch my first skill swap! Connect with me on the explore page to barter programming, language practice, or creative topics.</p>
         </div>
@@ -391,7 +400,7 @@ function renderExperienceTimeline() {
         <div class="exp-logo">LL</div>
         <div class="exp-details">
           <h4>Skill Barter Exchange Partner</h4>
-          <h5>LearnLoop Barter Network &bull; Complete Swap</h5>
+          <h5>SkillSync Barter Network &bull; Complete Swap</h5>
           <p>Date: ${s.date} &bull; ${s.time}</p>
           <p class="exp-desc">Exchanged knowledge with <strong>${s.partnerName}</strong>. Covered topic session: <em>"${s.topic}"</em>. Earned recommendation rating points.</p>
         </div>

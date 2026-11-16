@@ -33,7 +33,7 @@ SkillSync is a community-driven skill exchange platform where users teach what t
 
 ## 🛠️ Folder Structure
 
-```text
+```
 SkillSync/
 ├── css/
 │   ├── auth.css

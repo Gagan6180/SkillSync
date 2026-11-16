@@ -1,4 +1,4 @@
-// LearnLoop Direct Messaging Logic
+// SkillSync Direct Messaging Logic
 
 let activePartnerId = null;
 
@@ -373,7 +373,7 @@ function setupAttachment() {
     const cRecord = chats.find(c => c.partnerId === activePartnerId);
     if (!cRecord) return;
 
-    const fileNames = ["Figma_Design_System_Wireframes.pdf", "Python_Basics_StudyGuide.zip", "SkillBarter_Notes_LearnLoop.docx"];
+    const fileNames = ["Figma_Design_System_Wireframes.pdf", "Python_Basics_StudyGuide.zip", "SkillBarter_Notes_SkillSync.docx"];
     const randFile = fileNames[Math.floor(Math.random() * fileNames.length)];
 
     const msgTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });

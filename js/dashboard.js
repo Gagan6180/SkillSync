@@ -1,4 +1,4 @@
-// LearnLoop Dashboard Logic
+// SkillSync Dashboard Logic
 
 document.addEventListener("DOMContentLoaded", () => {
   forceAuth();

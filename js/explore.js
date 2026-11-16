@@ -1,4 +1,4 @@
-// LearnLoop Explore & Matching Logic
+// SkillSync Explore & Matching Logic
 
 document.addEventListener("DOMContentLoaded", () => {
   forceAuth();
